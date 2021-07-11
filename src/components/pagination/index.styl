@@ -1,0 +1,101 @@
+@import '../styles/vars'
+@import '../styles/mixins'
+
+$prefixCls = berry-pagination
+
+.{$prefixCls}
+    display: flex
+    align-items: center
+    &-simple-pages
+        margin: $pagination-simple-offset
+        color: $font-color
+
+    &-simple-page-index
+        font-weight: bold
+        color: $primary-color
+
+    &-simple-page-separator
+        margin: 0 5px
+
+    &-show-total
+        margin-right: 10px
+        color: $font-color
+
+    &-item
+        cursor: pointer
+        border-radius: $border-radius
+        user-select: none
+        min-width: $pagination-item-size-default
+        height: $pagination-item-size-default
+        text-align: center
+        list-style: none
+        display: inline-flex
+        justify-content: center
+        align-items: center
+        vertical-align: middle
+        border: 1px solid $border-color
+        background-color: #fff
+        margin-right: $pagination-item-offset
+        padding: $pagination-item-padding
+        outline: 0
+        transition: all $default-transition
+        font-size: $font-size
+        
+        &.{$prefixCls}-item-large
+            min-width: $pagination-item-size-large
+            height: $pagination-item-size-large
+
+        &.{$prefixCls}-item-small
+            min-width: $pagination-item-size-small
+            height: $pagination-item-size-small
+
+        &-disabled
+            cursor: not-allowed
+            color: $disabled-font-color
+
+        &:not(&-disabled):hover,
+        &-selected
+            color: $primary-color
+            border: 1px solid $primary-color
+
+    &-next
+        margin-right: 20px
+
+    &-size-changer
+        &.berry-select
+            width: 110px
+
+        .berry-input
+            height: $pagination-item-size-default
+
+        &-container
+            .berry-select-option
+                height: $pagination-item-size-default
+                padding: 0 8px
+                line-height: $pagination-item-size-default
+
+            &-large
+                .berry-select-option
+                    height: $pagination-item-size-large
+                    line-height: $pagination-item-size-large
+            
+            &-small
+                .berry-select-option
+                    height: $pagination-item-size-small
+                    line-height: $pagination-item-size-small
+
+    &-default
+        .berry-input
+            height: $pagination-item-size-default
+
+    &-large
+        .berry-input
+            height: $pagination-item-size-large
+
+    &-small
+        .berry-input
+            height: $pagination-item-size-small
+
+    &-quick-jumper
+        &.berry-input
+            margin: 0 10px

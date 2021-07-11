@@ -1,0 +1,118 @@
+@import "../styles/vars"
+
+$prefixCls = berry-city-picker
+$corePrefixCls = berry-city-picker-core
+
+.{$prefixCls}
+    position: relative
+    display: inline-block
+    
+    &-inner
+        display: inline-block
+        position: relative
+        cursor: pointer
+        >.berry-input:not(.berry-input-disabled)
+            cursor: pointer
+
+    &-active
+        .{$prefixCls}-arrow
+            transform: translateY(-50%) rotate(180deg)
+
+    &-open
+        animation: berry-picker-open $default-transition forwards
+
+    &-close
+        animation: berry-picker-close $default-transition forwards
+        pointer-events: none
+
+    &-input
+        width: $berry-city-picker-width - 180px
+
+    &-content
+        position: absolute
+        left: 0
+        top: 100%
+        margin-top: $picker-offset-top
+        transform: scale(0)
+        z-index: $berry-city-picker-z-index
+        background-color: #fff
+
+    &-arrow
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+        color: $disabled-font-color
+        transition: transform $default-transition
+
+
+.{$corePrefixCls}
+    width: $berry-city-picker-width
+    border: 1px solid $border-color
+    box-shadow: $default-shadow
+    border-radius: $border-radius
+    &-title
+        padding: 16px 0 5px
+        text-align: center
+
+    &-disabled
+        color: $disabled-font-color
+        cursor: not-allowed !important
+
+    &-panel
+        $address-select-section-header-height = 42px
+        min-height: 221px
+        padding: 5px 17px 10px 17px
+        border-radius: $border-radius
+        &-header
+            height: $address-select-section-header-height
+            line-height: $address-select-section-header-height
+            color: $font-color
+            position: relative
+            &::before
+                content: ' '
+                position: absolute
+                width: 100%
+                height: 1px
+                transform: scaleY(.5)
+                transform-origin: 50% 100%
+                background-color: $border-color
+                left: 0
+                top: 100%
+            
+            &-wrap
+                display: flex
+                align-items: center
+                justify-content: space-between
+                .{$corePrefixCls}-item
+                    cursor: pointer
+                    transition: all $default-transition
+                    position: relative
+                    &:not(.{$corePrefixCls}-disabled):hover
+                        color: $primary-color
+                    
+                    &.{$corePrefixCls}-active
+                        color: $primary-color
+                        &::after
+                            content: ' '
+                            position: absolute
+                            width: 100%
+                            height: 2px
+                            background-color: $primary-color
+                            left: 0
+                            bottom: -1px
+        &-content
+            &-wrap
+                padding-top: 25px
+                display: flex
+                flex-wrap: wrap
+                align-items: center
+                .{$corePrefixCls}-city
+                    cursor: pointer
+                    margin-bottom: 16px
+                    transition: all $default-transition
+                    width: 20%
+                    &:hover
+                        color: $primary-color
+                    &.{$corePrefixCls}-city-selected
+                        color: $primary-color

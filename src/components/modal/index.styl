@@ -1,0 +1,187 @@
+@import "../styles/vars"
+@import "../styles/mixins"
+@import "../styles/animate"
+
+$prefixCls = berry-modal
+
+.{$prefixCls}
+    pointer-events: auto
+    box-shadow: $default-shadow
+    background-color: $modal-bg-color
+    border-radius: $border-radius
+    width: $modal-width
+    z-index: $modal-z-index
+    transform-origin: bottom center
+    outline: none
+    position: relative
+    margin: 0 auto
+    padding: 0
+    list-style: none
+    transform: scale(0)
+    top: $modal-offset-top
+    margin-bottom: $modal-offset-bottom
+
+    &.{$prefixCls}-open
+        pointer-events: auto
+        animation: berry-fade-in $default-transition forwards
+
+    &.{$prefixCls}-close
+        pointer-events: none
+        animation: berry-fade-out $default-transition forwards
+
+    &.no-title
+        .{$prefixCls}-header
+            border-bottom: 1px solid transparent
+
+    @media $mobile
+        width: auto !important
+        margin: 10px
+
+    &-header
+        padding: $modal-header-padding
+        border-bottom: 1px solid $border-color
+        line-height: $modal-header-height
+        text-align: center
+        position: relative
+        
+        .{$prefixCls}-title
+            font-size: $modal-title-font-size
+            color: $font-color
+            margin: 0
+            font-weight: 500
+            padding: $modal-header-title-padding
+            ellipsis(1)
+        
+        .{$prefixCls}-close
+            position: absolute
+            right: 20px
+            top: 13px
+            cursor: pointer
+            color: $modal-close-font-color
+            font-size: $modal-close-font-size
+            &,
+            i
+                transition: all .3s $animate-type
+
+            &:hover
+                transform: rotate(90deg)
+                &,
+                i
+                    color: $primary-color
+
+    &-content
+        padding: $modal-padding
+        background-clip: padding-box
+        margin: 0 auto
+        line-height: 1.5
+        word-wrap: break-word
+
+    &-footer
+        padding: $modal-footer-padding
+        flex-center(space-between)
+        align-content: center
+        .berry-button
+            flex: 1
+            &:not(:first-child)
+                margin-left: 10%
+
+    &-method
+        width: $modal-method-width  !important
+        @media $mobile
+            width: auto !important
+            margin: 10px
+
+        &-icon
+            margin-right: $modal-method-icon-offset
+            vertical-align: middle
+            font-size: $modal-method-icon-size
+
+        &:not(.{$prefixCls}-confirm):not(.{$prefixCls}-prompt)
+            .{$prefixCls}-footer
+                .berry-button
+                    margin: 0
+                    &:first-child
+                        display: none
+
+        &.{$prefixCls}-confirm
+            .{$prefixCls}-method-icon
+                color: $warning-color
+        
+        &.{$prefixCls}-info
+            .{$prefixCls}-method-icon
+                color: $info-color
+
+        &.@{prefixCls}-success
+            .{$prefixCls}-method-icon
+                color: $success-color
+
+        &.{$prefixCls}-error
+            .{$prefixCls}-method-icon
+                color: $error-color
+
+        &.{$prefixCls}-warning
+            .{$prefixCls}-method-icon
+                color: $warning-color
+
+        &.{$prefixCls}-prompt
+            .{$prefixCls}-method-icon
+                color: $primary-color
+
+        &.{$prefixCls}-loading
+            .{$prefixCls}-method-icon
+                color: $loading-color
+                svg
+                    animation: berry-spin $loading-time linear infinite
+
+.{$prefixCls}-wrap
+    position: fixed
+    overflow: auto
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    z-index: $modal-z-index
+    outline: 0
+    pointer-events: none
+    -webkit-overflow-scrolling: touch
+    &-visible
+        pointer-events: auto
+
+.{$prefixCls}-centered
+    text-align: center
+    &::before
+        content: ""
+        display: inline-block
+        height: 100%
+        vertical-align: middle
+        width: 0
+
+    .{$prefixCls}
+        display: inline-block
+        vertical-align: middle
+        top: 0
+        text-align: left
+
+    margin-bottom: 0
+
+.{$prefixCls}-mask
+    position: fixed
+    background-color: $modal-mask-color
+    left: 0
+    top: 0
+    bottom: 0
+    right: 0
+    width: 100%
+    height: 100%
+    z-index: $modal-z-index
+    // pointer-events: none
+    transform: scale(0)
+
+    &-show
+        pointer-events: auto
+        animation: berry-mask-fade-in $default-transition forwards
+
+    &-hide
+        pointer-events: none
+        animation: berry-mask-fade-out $default-transition forwards
+    

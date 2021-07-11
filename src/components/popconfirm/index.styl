@@ -1,0 +1,22 @@
+@import '../styles/vars'
+
+$prefixCls = berry-popconfirm
+
+.{$prefixCls}
+    &-wrapper
+        padding: $berry-popconfirm-wrapper-padding
+        z-index: $berry-popconfirm-wrapper-z-index
+        .berry-popover-title
+            border: none
+            text-align: left
+
+        .{$prefixCls}-button-group
+            margin-top: $berry-popconfirm-offset
+            text-align: right
+            .berry-button + .berry-button
+                margin-left: $berry-popconfirm-offset
+
+        .{$prefixCls}-title-icon
+            margin-right: $berry-popconfirm-offset
+            color: $warning-color
+            vertical-align: middle

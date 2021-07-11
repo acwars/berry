@@ -1,0 +1,138 @@
+@import "../styles/vars"
+@import "../styles/mixins"
+@import "../styles/animate"
+
+$prefixCls = berry-button
+
+.{$prefixCls}
+    display: inline-block
+    margin: 0
+    text-align: center
+    touch-action: manipulation
+    cursor: pointer
+    background-image: none
+    border: 1px solid transparent
+    white-space: nowrap
+    line-height: 1.5
+    padding: $button-default-padding
+    font-size: $button-default-font-size
+    height: $button-default-height
+    user-select: none
+    transition: all $default-transition
+    position: relative
+    color: $font-color
+    background-color: #fff
+    border-color: $border-color
+    border-radius: $border-radius
+    outline: none
+    text-shadow: $default-text-shadow
+    berry-button-hover($default-color)
+
+    &.{$prefixCls}-primary
+        berry-button-hover($primary-color)
+        &.{$prefixCls}-hollow
+            berry-button-hollow($primary-color)
+
+    &.{$prefixCls}-default
+        color: $font-color
+        background-color: #fff
+        border: 1px solid $default-color
+        text-shadow: none
+        &:not(.{$prefixCls}-disabled):not(.{$prefixCls}-loading)
+            &:hover, 
+            &:active
+                border: 1px solid $primary-color
+                color: $primary-color
+        &.{$prefixCls}-hollow
+            berry-button-hollow($default-color)
+
+    &.{$prefixCls}-warning
+        berry-button-hover($warning-color)
+        &.{$prefixCls}-hollow
+            berry-button-hollow($warning-color)
+
+    &.{$prefixCls}-error
+        berry-button-hover($error-color)
+        &.{$prefixCls}-hollow
+            berry-button-hollow($error-color)
+
+    &.{$prefixCls}-success
+        berry-button-hover($success-color)
+        &.{$prefixCls}-hollow
+            berry-button-hollow($success-color)
+
+    &.{$prefixCls}-info
+        berry-button-hover($info-color)
+        &.{$prefixCls}-hollow
+            berry-button-hollow($info-color)
+
+    &.{$prefixCls}-disabled
+        cursor: not-allowed
+        opacity: $button-disabled-opacity
+        &.{$prefixCls}-hollow
+            background-color: transparent !important
+        &.{$prefixCls}-normal
+            berry-button-hover($disabled-color)
+            text-shadow: none
+            border: 1px solid $border-color
+            color: $disabled-font-color !important
+            opacity: 1
+            &.{$prefixCls}-hollow
+                color: $disabled-font-color
+
+    &.{$prefixCls}-block
+        width: 100%
+        display: block
+
+    &.{$prefixCls}-loading
+        opacity: $loading-opacity
+        cursor: not-allowed
+        >.berry-loading
+            display: inline-block
+            vertical-align: middle
+            margin: -3px 10px 0 0
+            animation: berry-spin $loading-time linear infinite
+
+    &.{$prefixCls}-size-large
+        font-size: $button-large-font-size
+        padding: $button-large-padding
+        height: $button-large-height
+
+    &.{$prefixCls}-size-small
+        font-size: $button-small-font-size
+        padding: $button-small-padding
+        height: $button-small-height
+
+    &.{$prefixCls}-circle
+        width: $button-default-width
+        height: $button-default-height
+        border-radius: 50%
+        padding: 0
+        box-shadow: $default-section-shadow
+        &.{$prefixCls}-large
+            width: $button-large-width
+            height: $button-large-height
+        &.{$prefixCls}-small
+            width: $button-small-width
+            height: $button-small-height
+        &.{$prefixCls}-loading
+            position: relative
+            &:before
+                content: " "
+                width: $button-default-width + 8px
+                height: $button-default-width + 8px
+                position: absolute
+                border: 1px solid $primary-color
+                border-radius: 50%
+                border-left: none
+                border-right: none
+                border-bottom: none
+                animation: berry-spin $loading-time $animate-type-easy-in-out infinite
+                left: -5px
+                top: -5px
+
+    &-link
+        cursor: pointer
+        &.{$prefixCls}-link-disabled
+            cursor: not-allowed
+            color: $disabled-font-color

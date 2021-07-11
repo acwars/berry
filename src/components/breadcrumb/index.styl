@@ -1,0 +1,27 @@
+@import "../styles/vars.styl"
+
+$prefixCls = berry-breadcrumb
+
+.{$prefixCls}
+    margin-bottom: $berry-breadcrumb-offset-bottom
+    padding: $berry-breadcrumb-padding
+    line-height: normal
+    color: $berry-breadcrumb-font-color
+
+    > span:last-child
+        font-weight: bold
+        color: $font-color
+
+        .{$prefixCls}-item-separator
+            display: none
+
+    &-item-separator
+        margin: $berry-breadcrumb-separator-offset
+        color: $berry-breadcrumb-separator-color
+
+    &-item-text
+        a
+            color: $berry-breadcrumb-font-color
+            &:hover,
+            &:active
+                color: $primary-color

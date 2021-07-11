@@ -1,0 +1,72 @@
+@import '../styles/vars'
+@import '../styles/mixins'
+
+$prefixCls = berry-number-input
+
+.{$prefixCls}
+    width: $berry-number-input-width
+    &.berry-input-small
+        width: $berry-number-input-width-small
+    &.berry-input-large
+        width: $berry-number-input-width-large
+    &-group
+        display: inline-flex
+        .berry-input
+            width: $berry-number-input-width
+
+        .berry-input-group-addon
+            cursor: pointer
+
+        &.berry-input-group-small
+            .berry-input-group-addon
+                padding: 4px
+
+        &.berry-input-group-large
+            .berry-input-group-addon
+                padding: 4px 15px
+
+    &-wrapper
+        display: inline-block
+
+    &-stepper
+        background: transparent
+        border: none
+        cursor: pointer
+        transition: color $default-transition
+        font-size: 20px
+        &:not(.{$prefixCls}-disabled):hover
+            color: $primary-color
+        &.{$prefixCls}-disabled
+            cursor: not-allowed
+            color: $disabled-font-color
+            border-color: $border-color
+        .{$prefixCls}-stepper-disabled
+            cursor: not-allowed
+            color: $disabled-font-color
+            border-color: $border-color
+
+    &-disabled-subtract
+        .berry-input-group-addon:first-child
+            cursor: not-allowed
+            color: $disabled-font-color
+            border-color: $border-color
+            background-color: $disabled-color
+
+    &-disabled-add
+        .berry-input-group-addon:last-child
+            cursor: not-allowed
+            color: $disabled-font-color
+            border-color: $border-color
+            background-color: $disabled-color
+
+    &-group-disabled
+        .berry-input-group-addon
+            background-color: $disabled-color
+            color: $disabled-font-color
+            cursor: not-allowed
+
+        .{$prefixCls}-stepper
+            cursor: not-allowed
+            &:hover
+                color: $disabled-font-color
+

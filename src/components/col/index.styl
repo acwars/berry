@@ -1,0 +1,15 @@
+@import '../styles/vars'
+@import '../styles/mixins'
+
+$prefixCls = berry-col
+$offsetCls = offset
+
+.{$prefixCls}
+    loop(n)
+        for i in 1..n
+            &-{i}
+                width: (i / $max-col-length) * $max-row-width
+            &-{$offsetCls}-{i}
+                margin-left: (i / $max-col-length) * $max-row-width
+
+    loop($max-col-length)

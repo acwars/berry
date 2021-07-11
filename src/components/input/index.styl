@@ -1,0 +1,149 @@
+@import "../styles/vars"
+@import "../styles/mixins"
+
+$prefixCls = berry-input
+
+.{$prefixCls}
+    font-variant: tabular-nums
+    box-sizing: border-box
+    margin: 0
+    list-style: none
+    position: relative
+    display: inline-block
+    padding: $input-padding
+    width: 100%
+    height: $input-height
+    font-size: $font-size
+    line-height: 1.5
+    color: $font-color
+    background-color: #fff
+    background-image: none
+    border: 1px solid $border-color
+    border-radius: $border-radius
+    transition: all $animate-time
+    outline: none
+
+    &:active, 
+    &:hover, 
+    &:focus
+      border-color: $primary-color
+      outline: none
+      box-shadow: $input-box-shadow
+
+    &-large
+      height: $input-height-large
+
+    &-small
+      height: $input-height-small
+
+    &-disabled
+      cursor: not-allowed
+      color: $disabled-font-color
+      background-color: $disabled-color
+      &:active, 
+      &:hover, 
+      &:focus
+        border-color: $border-color
+        outline: none
+        box-shadow: none
+
+
+    &-group-addon-before
+        > .{$prefixCls}
+            border-bottom-right-radius: $border-radius !important
+            border-top-right-radius: $border-radius !important
+
+    &-group-addon-after
+        > .{$prefixCls}
+            border-bottom-left-radius: $border-radius !important
+            border-top-left-radius: $border-radius !important
+
+    &-group-addon-all
+        > .{$prefixCls}
+            border-radius: 0 !important
+
+    &-group
+        vertical-align: middle
+        flex-center(space-around)
+
+        &-small
+            .{$prefixCls}-group-addon
+                height: $input-height-small
+        
+        &-large
+            .{$prefixCls}-group-addon
+                height: $input-height-large
+
+        > .{$prefixCls}
+            flex: 1 1 auto
+            width: 100%
+            margin-bottom: 0
+            border-radius: 0
+        
+        &-addon
+            padding: $input-padding
+            font-size: $font-size
+            font-weight: normal
+            height: $input-height
+            line-height: $input-height
+            color: rgba(0, 0, 0, 0.65)
+            text-align: center
+            background-color: $bg-color
+            border: 1px solid $border-color
+            border-radius: $border-radius
+            position: relative
+            transition: all $loading-time
+            flex-center()
+        
+            &:first-child
+                border-bottom-right-radius: 0
+                border-top-right-radius: 0
+                border-right: none
+
+            &:last-child
+                border-bottom-left-radius: 0
+                border-top-left-radius: 0
+                border-left: none
+
+    &-wrapper
+        position: relative
+        .{$prefixCls}-clear
+            opacity: .5
+            transition: $default-transition
+            &:hover
+                opacity: .7
+        
+        &.{$prefixCls}-has-prefix
+            .{$prefixCls}
+                padding-left: $input-prefix-offset + 20px
+
+        &.{$prefixCls}-has-suffix
+            .{$prefixCls}
+                padding-right: $input-prefix-offset + 20px
+
+    &-prefix,
+    &-suffix
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        z-index: 1
+        flex-center()
+        cursor: pointer
+        &, svg
+            color: $disabled-font-color
+            font-size: $font-size
+
+    &-prefix
+        left: $input-prefix-offset
+
+    &-suffix
+        right: $input-suffix-offset
+
+    &-clear
+        animation: berry-zoom-in $default-transition forwards
+        color: $font-color !important
+
+    &-password
+        &-suffix
+            svg
+                color: $font-color

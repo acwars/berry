@@ -1,0 +1,95 @@
+@import '../styles/vars'
+
+$prefixCls = berry-timeline
+
+.{$prefixCls}
+    line-height: 1.5
+    box-sizing: border-box
+    font-size: $font-size
+    color: $font-color
+    margin: 0
+    padding: 0
+    &-animated
+        .{$prefixCls}-item-content
+            opacity: 0
+
+    &-slideUp
+        .{$prefixCls}-item-content
+            animation: berry-slide-up $default-transition forwards
+
+    &-slideDown
+        .{$prefixCls}-item-content
+            animation: berry-slide-down $default-transition forwards
+
+    &-slideLeft
+        .{$prefixCls}-item-content
+            animation: berry-slide-left $default-transition forwards
+    
+    &-slideRight
+        .{$prefixCls}-item-content
+            animation: berry-slide-right $default-transition forwards
+
+    &-item
+        position: relative
+        padding-bottom: 20px
+        margin: 0
+        font-size: inherit
+
+        &:last-child
+            .{$prefixCls}-item-line
+                display: none
+
+        &-dot
+            position: absolute
+            left: 0
+            top: 0
+            background-color: #fff
+            border: 2px solid $primary-color
+            border-radius: 50%
+            width: $berry-timeline-dot-width
+            height: $berry-timeline-dot-height
+
+        &-dot-loading
+            background-color: #fff
+            position: absolute
+            left: 0
+            top: 0
+            margin-left: -2px
+            cursor: not-allowed
+            svg
+                animation: berry-spin $loading-time linear infinite
+                color: $loading-color
+
+        &-primary
+            .{$prefixCls}-item-dot
+                border-color: $primary-color
+
+        &-warning
+            .{$prefixCls}-item-dot
+                border-color: $warning-color
+
+        &-success
+            .{$prefixCls}-item-dot
+                border-color: $success-color
+
+        &-error
+            .{$prefixCls}-item-dot
+                border-color: $error-color
+
+        &-disabled
+            .{$prefixCls}-item-dot
+                border-color: $disabled-color
+            cursor: not-allowed
+        
+        &-content
+            margin: $berry-timeline-content-offset
+            position: relative
+            top: -2px
+
+        &-line
+            position: absolute
+            width: $berry-timeline-line-width
+            height: 100%
+            left: 4px
+            top: 0.75em
+            background-color: $border-color

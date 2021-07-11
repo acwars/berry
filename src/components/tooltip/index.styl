@@ -1,0 +1,134 @@
+@import '../styles/vars'
+@import '../styles/mixins'
+
+$prefixCls = berry-tooltip
+
+.{$prefixCls}
+    display: inline-block
+    vertical-align: top
+    
+    &-trigger-wrapper
+        display: inline-block
+
+    &-hidden-arrow
+        &.{$prefixCls}-position-top
+        &.{$prefixCls}-position-right
+        &.{$prefixCls}-position-bottom
+        &.{$prefixCls}-position-left
+            &::before
+            &::after
+                display: none
+
+    &-show
+        &.{$prefixCls}-position-top
+            animation: berry-slide-down $default-transition forwards
+        &.{$prefixCls}-position-right
+            animation: berry-slide-right $default-transition forwards
+        &.{$prefixCls}-position-bottom
+            animation: berry-slide-up $default-transition forwards
+        &.{$prefixCls}-position-left
+            animation: berry-slide-left $default-transition forwards
+
+    &-hide
+        &.{$prefixCls}-position-top
+            animation: berry-slide-down-out $default-transition forwards
+        &.{$prefixCls}-position-right
+            animation: berry-slide-right-out  $default-transition forwards
+        &.{$prefixCls}-position-bottom
+            animation: berry-slide-up-out $default-transition forwards
+        &.{$prefixCls}-position-left
+            animation: berry-slide-left-out $default-transition forwards
+        pointer-events: none
+
+    &-dark
+        background-color: $tooltip-dark-bg-color
+        text-shadow: $default-text-shadow
+
+
+    &-light
+        background-color: $tooltip-light-bg-color
+        color: $font-color !important
+        text-shadow: unset
+        &.{$prefixCls}-position-top
+            &::before,
+            &::after
+                border-top-color: $tooltip-light-bg-color !important
+
+        &.{prefixCls}-position-bottom
+            &::before, 
+            &::after
+                border-bottom-color: $tooltip-light-bg-color !important
+
+        &.{prefixCls}-position-left
+            &::before, 
+            &::after
+                border-left-color: $tooltip-light-bg-color !important
+
+        &.{prefixCls}-position-right
+            &::before, 
+            &::after
+                border-right-color: $tooltip-light-bg-color !important
+
+    &-wrapper
+        position: absolute
+        background-clip: border-box
+        box-shadow: $default-shadow
+        color: $tooltip-font-color
+        padding: $tooltip-padding
+        font-size: $font-size
+        border-radius: $border-radius
+        word-break: break-all
+        z-index: $tooltip-wrapper-z-index
+        transform: scale(0)
+        &::after,
+        &::before
+            content: " "
+            position: absolute
+            width: 0
+            height: 0
+            border: $tooltip-triangle-width solid transparent
+            z-index: -1
+        &.{$prefixCls}-position-top
+        &.{$prefixCls}-position-bottom
+            &::after,
+            &::before
+                left: 50%
+                transform: translateX(-50%)
+
+        &.{$prefixCls}-position-top
+            margin-top: -$tooltip-offset-y
+            &::before,
+            &::after
+                top: 85%;
+                border-top-color: $tooltip-bg-color
+                border-bottom: none
+
+        &.{$prefixCls}-position-bottom
+            margin-top: $tooltip-offset-y
+            &::before,
+            &::after
+                bottom: 85%
+                border-bottom-color: $tooltip-bg-color
+
+        &.{$prefixCls}-position-left
+            margin-left: -$tooltip-offset-x
+            &::before,
+            &::after
+                transform: translateY(-50%)
+                top: 50%
+                border-right: none
+                border-left-color: $tooltip-bg-color
+                left: 95%
+                
+        &.{$prefixCls}-position-right
+            margin-left: $tooltip-offset-x
+            &::before,
+            &::after
+                transform: translateY(-50%)
+                top: 50%
+                border-right-color: $tooltip-bg-color
+                border-left: none
+                right: 95%
+
+    &-open
+        display: block

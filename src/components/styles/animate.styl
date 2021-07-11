@@ -1,0 +1,282 @@
+@keyframes berry-spin
+  0%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(360deg)
+
+
+@keyframes berry-fade-out
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(0, -50px, 0)
+
+
+@keyframes berry-fade-in
+  from
+    opacity: 0
+    transform: translate3d(0, -50px, 0)
+
+  to
+    opacity: 1
+    transform: scale(1) translate3d(0, 0, 0)
+
+
+@keyframes berry-mask-fade-in
+  from
+    opacity: 0
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 1
+    transform: scale(1) translate3d(0, 0, 0)
+
+
+@keyframes berry-mask-fade-out
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(0, 0, 0)
+
+
+@keyframes berry-slide-up
+  from
+    opacity: 0
+    transform: translate3d(0, 15px, 0)
+
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+
+@keyframes berry-slide-up-out
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(0, 15px, 0)
+
+
+@keyframes berry-slide-down
+  from
+    opacity: 0
+    transform: translate3d(0, -15px, 0)
+
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+
+@keyframes berry-slide-down-out
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(0, -15px, 0)
+
+
+@keyframes berry-slide-right
+  from
+    opacity: 0
+    transform: translate3d(15px, 0, 0)
+
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+
+@keyframes berry-slide-right-out
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(15px, 0, 0)
+
+
+@keyframes berry-slide-left
+  from
+    opacity: 0
+    transform: translate3d(-15px, 0, 0)
+
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+
+@keyframes berry-slide-left-out
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(-15px, 0, 0)
+
+
+@keyframes berry-drawer-slide-in-left
+  from
+    transform: translate3d(-100%, 0, 0)
+
+  to
+    transform: scale(1) translate3d(0, 0, 0)
+
+
+@keyframes berry-drawer-slide-out-left
+  from
+    transform: translate3d(0, 0, 0)
+
+  to
+    transform: translate3d(-100%, 0, 0)
+
+
+@keyframes berry-drawer-slide-in-right
+  to
+    transform: translate3d(0, 0, 0)
+
+
+@keyframes berry-drawer-slide-out-right
+  from
+    transform: translate3d(-100%, 0, 0)
+
+  to
+    transform: translate3d(0, 0, 0)
+
+
+@keyframes berry-drawer-slide-in-top
+  from
+    transform: translate3d(0, -100%, 0)
+
+  to
+    transform: scale(1) translate3d(0, 0, 0)
+
+
+@keyframes berry-drawer-slide-out-top
+  from
+    transform: translate3d(0, 0, 0)
+
+  to
+    transform: translate3d(0, -100%, 0)
+
+
+@keyframes berry-drawer-slide-in-bottom
+  from
+    transform: translate3d(0, 100%, 0)
+
+  to
+    transform: scale(1) translate3d(0, -100%, 0)
+
+
+@keyframes berry-drawer-slide-out-bottom
+  from
+    transform: translate3d(0, -100%, 0)
+
+  to
+    transform: translate3d(0, 100%, 0)
+
+
+@keyframes berry-hide
+  from
+    opacity: 1
+
+  to
+    opacity: 0
+    transform: translate3d(-20px, 0, 0)
+
+
+@keyframes berry-picker-hide
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(0, -30px, 0)
+
+
+@keyframes berry-picker-open
+  from
+    opacity: 0
+    transform: translate3d(0, -30px, 0)
+
+  to
+    opacity: 1
+    transform: scale(1) translate3d(0, 0, 0)
+
+
+@keyframes berry-picker-close
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(0, -15px, 0)
+
+
+@keyframes berry-notification-open
+  from
+    opacity: 0
+    transform: translate3d(100px, 0, 0)
+
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+
+@keyframes berry-notification-open-from-left
+  from
+    opacity: 0
+    transform: translate3d(-100px, 0, 0)
+
+  to
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+
+@keyframes berry-notification-close
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(100px, 0, 0)
+
+
+@keyframes berry-notification-close-from-left
+  from
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+
+  to
+    opacity: 0
+    transform: translate3d(-100px, 0, 0)
+
+
+@keyframes berry-zoom-in
+  from
+    transform: scale(0)
+
+  to
+    transform: scale(1)
+
+
+@keyframes berry-zoom-out
+  from
+    transform: scale(1)
+
+  to
+    transform: scale(0)

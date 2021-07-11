@@ -1,0 +1,91 @@
+@import '../styles/vars'
+@import '../styles/mixins'
+
+$prefixCls = berry-switch
+
+.{$prefixCls}
+    display: inline-block
+    box-sizing: border-box
+    cursor: pointer
+    transition: all $animate-time $animate-type
+    user-select: none
+    vertical-align: middle
+    border-radius: $berry-switch-width
+    position: relative
+    font-size: $font-size
+    color: $font-color
+    height: $berry-switch-height
+    line-height: $berry-switch-height
+    min-width: $berry-switch-width
+    background-color: $berry-switch-bg-color
+
+    &:after
+        content: ' '
+        position: absolute
+        width: $berry-switch-circle-width
+        height: $berry-switch-circle-width
+        border-radius: 50%
+        background-color: #fff
+        left: $berry-switch-offset
+        top: (($berry-switch-height - $berry-switch-circle-width) / 2)
+        box-shadow: $default-shadow
+        transition: all $animate-time $animate-type
+
+    &-loading
+        &-icon
+            position: absolute
+            display: flex
+            vertical-align: middle
+            left: $berry-switch-offset + 2px
+            top: ($berry-switch-height - $berry-switch-circle-width) / 2 + 2px
+            color: $disabled-font-color
+            z-index: 1
+            animation: berry-spin $loading-time linear infinite
+
+    &.{$prefixCls}-checked
+        background-color: $primary-color
+        &:after
+            left: 100%
+            margin-left: -($berry-switch-offset)
+            transform: translate3d(-100%, 0, 0)
+
+        .{$prefixCls}-inner
+            margin-left: 6px
+
+        .{$prefixCls}-loading
+            &-icon
+                left: 100%
+                opacity: .8
+                color: $primary-color
+                margin-left: -($berry-switch-circle-width)
+                transform: translate3d(-100%, 0, 0)
+
+    &-inner
+        color: #fff
+        font-size: $font-size - 2px
+        margin-left: 24px
+
+    &.{$prefixCls}-disabled,
+    &.{$prefixCls}-loading
+        cursor: not-allowed
+        background-color: fade($berry-switch-bg-color, 10%)
+        &.{$prefixCls}-checked
+            background-color: fade($primary-color, 40%)
+
+    &.{$prefixCls}-small
+        height: $berry-switch-height-small
+        min-width: $berry-switch-width-small
+        line-height: $berry-switch-height-small
+        &:after
+            width: $berry-switch-circle-width-small
+            height: $berry-switch-circle-width-small
+
+    &.{$prefixCls}-large
+        height: $berry-switch-height-large
+        min-width: $berry-switch-width-large
+        line-height: $berry-switch-height-large
+        border-radius: $berry-switch-circle-width-large * 3
+
+        &:after
+            width: $berry-switch-circle-width-large
+            height: $berry-switch-circle-width-large

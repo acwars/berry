@@ -1,0 +1,119 @@
+berry-button-hover($color = $default-color, $lighten = 5%, $font-color = #fff)
+    color: $font-color
+    background-color: $color
+    border: 1px solid $color
+    &:not(.berry-button-disabled):not(.berry-button-default):not(.berry-button-dashed):not(.berry-button-hollow)
+        &:hover, 
+        &:active, 
+        &:focus
+            border: 1px solid $color
+            background-color: lighten($color, $lighten)
+            color: lighten($font-color, $lighten)
+
+
+    &.berry-button-default
+        &:active, 
+        &:focus
+            border: 1px solid $primary-color
+            color: lighten($primary-color, $lighten)
+
+
+    &.berry-button-dashed
+        border: 1px dashed $border-color
+        &:hover, 
+        &:active, 
+        &:focus
+            background-color: lighten($color, $lighten)
+            color: lighten($font-color, $lighten)
+
+tag-hover($color = $default-color, $lighten = 5%, $font-color = #fff)
+    color: $font-color
+    background-color: $color
+    border: 1px solid $color
+    &:not(.berry-tag-disabled):not(.berry-tag-default):not(.berry-tag-color)
+        &:hover, 
+        &:active, 
+        &:focus
+            background-color: lighten($color, $lighten)
+
+berry-button-hollow($color, $lighten = 5%)
+    color: $color
+    background: transparent
+    text-shadow: unset
+    &:not(.berry-button-disabled)
+        &:hover, 
+        &:active, 
+        &:focus
+            background-color: transparent
+            border-color: lighten($color, $lighten)
+            color: lighten($color, $lighten)
+
+    &.berry-button-dashed
+        border: 1px dashed $color
+        &:hover, 
+        &:active, 
+        &:focus
+            background-color: transparent
+            border: 1px dashed lighten($color, $lighten)
+            color: lighten($color, $lighten)
+
+tag-hollow($color, $lighten = 5%)
+    color: $color
+    background: transparent
+    &:not(.berry-tag-disabled):not(.berry-tag-color)
+        &:hover, 
+        &:active, 
+        &:focus
+            background-color: transparent
+            border-color: lighten($color, $lighten)
+            color: lighten($color, $lighten)
+
+flex-center($justify = center, $align = center)
+    display: flex
+    justify-content: $justify
+    align-items: $align
+
+add-alert-style($color = $default-color, $opacity = 10%)
+    border-color: $color
+    background-color: rgba($color, $opacity)
+
+clearfix()
+    &::before, 
+    &::after
+        clear: both
+        content: ""
+        display: table
+        zoom: 1
+
+set-progress-bar-bg($primaryColor = $primary-color)
+    background: repeating-linear-gradient(
+        -45deg, 
+        $bg-color 25%, 
+        $primaryColor 0, 
+        $primaryColor 50%, 
+        $bg-color 0, 
+        $bg-color 75%, 
+        $primaryColor 0
+    )
+    background-size: $berry-progress-bg-offset
+
+ellipsis($n = 2)
+    overflow: hidden
+    text-overflow: ellipsis
+    if n >= 2 
+        display: -webkit-box
+        -webkit-line-clamp: $n
+        -webkit-box-orient: vertical
+
+    if n = 1
+        white-space: nowrap
+
+
+avatar-size($size, $font-size)
+    width: $size
+    height: $size
+    line-height: $size
+    border-radius: 50%
+        
+    &.{$prefixCls}-icon
+        font-size: $font-size

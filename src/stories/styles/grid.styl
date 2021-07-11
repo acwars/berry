@@ -1,0 +1,18 @@
+@import "../../components/styles/vars"
+
+.example-row
+    margin: 10px 0
+    .example-col
+        span
+            height: 50px
+            display: flex
+            justify-content: center
+            align-items: center
+            color: #fff
+            background-color: $primary-color
+        & +.example-col
+            span
+                border-left: 1px solid $border-color
+
+.berry-container
+    border: 1px solid $border-color

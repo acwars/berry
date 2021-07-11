@@ -1,0 +1,104 @@
+@import "../styles/vars"
+@import "../styles/mixins"
+@import "../styles/animate"
+
+$prefixCls = berry-notification
+
+.{$prefixCls}
+    position: fixed
+    z-index: $notification-z-index
+    width: $notification-width
+    transform: translate3d(0, 0, 0)
+    right: $notification-offset-right
+    // top: $notification-offset-top
+    clearfix()
+    display: flex
+    @media $mobile
+        width: 95% !important
+        left: 50%
+        top: $notification-offset-top
+        right: 0
+        transform: translateX(-50%)
+
+    padding: $notification-padding
+    border-radius: $border-radius
+    box-shadow: $default-shadow
+    background: $notification-theme-light-bg
+
+    &-title
+        color: fade($font-color, 80%)
+        font-size: $notification-title-size
+        margin-bottom: 10px
+        @media $mobile
+            font-size: $notification-title-size-sm
+
+    &-message
+        color: $font-color
+
+    &-close-btn
+        position: absolute
+        right: 22px
+        top: 14px
+        color: fade($font-color, 45%)
+        font-size: $font-size + 2px
+        cursor: pointer
+
+    &.{$prefixCls}-theme-dark
+        background: $notification-theme-dark-bg
+        color: $notification-theme-dark-font-color
+        svg,
+        i,
+        .{$prefixCls}-title
+            color: $notification-theme-dark-font-color !important
+        .{$prefixCls}-message
+            color: $notification-theme-dark-font-color
+    
+    .{$prefixCls}-info
+        svg
+            color: $info-color
+
+    .{$prefixCls}-error
+        svg
+            color: $error-color
+
+    .{$prefixCls}-success
+        svg
+            color: $success-color
+
+    .{$prefixCls}-warning
+        svg
+            color: $warning-color
+
+    .{$prefixCls}-loading
+        svg
+            color: $loading-color
+            animation: berry-spin $loading-time linear infinite
+
+    &-icon
+        margin-right: 15px
+        svg,
+        i
+            font-size: $notification-icon-font-size
+            @media $mobile
+                font-size: $notification-icon-font-size-sm
+
+    &.{$prefixCls}-open
+        pointer-events: auto
+        &.{$prefixCls}-open-top-right,
+        &.{$prefixCls}-open-bottom-right
+            animation: berry-notification-open $berry-drawer-animate-type forwards
+
+        &.{$prefixCls}-open-top-left,
+        &.{$prefixCls}-open-bottom-left
+            animation: berry-notification-open-from-left $berry-drawer-animate-type forwards
+
+
+    &.{$prefixCls}-close
+        pointer-events: none
+        &.{$prefixCls}-close-top-right,
+        &.{$prefixCls}-close-bottom-right
+            animation: berry-notification-close $berry-drawer-animate-type forwards
+
+        &.{$prefixCls}-close-top-left,
+        &.{$prefixCls}-close-bottom-left
+            animation: berry-notification-close-from-left $berry-drawer-animate-type forwards

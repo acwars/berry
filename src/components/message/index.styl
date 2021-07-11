@@ -1,0 +1,81 @@
+@import "../styles/vars"
+@import "../styles/mixins"
+@import "../styles/animate"
+
+$prefixCls = berry-message
+
+.{$prefixCls}
+    position: fixed
+    z-index: $message-z-index
+    width: $message-width
+    height: $message-height
+    transform: translate3d(0, 0, 0)
+    margin: auto
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    overflow: auto
+    flex-center()
+    clearfix()
+    
+    @media $mobile
+        width: auto !important
+
+    padding: $message-padding
+    border-radius: $border-radius
+    box-shadow: $default-shadow
+    background: $message-theme-light-bg
+    text-align: center
+    
+    &-icon
+        svg,
+        i
+            font-size: $message-icon-font-size
+            @media $mobile
+                font-size: $message-icon-font-size-sm
+
+    &-title
+        color: $font-color
+        font-size: $message-title-size
+        
+        @media $mobile
+            font-size: $message-title-size-sm
+
+    &.{$prefixCls}-theme-dark
+        background: $message-theme-dark-bg
+        color: $message-theme-dark-font-color
+        svg,
+        i
+            .{$prefixCls}-title
+                color: $message-theme-dark-font-color !important
+
+
+    .{$prefixCls}-info
+        svg
+            color: $info-color
+
+    .{$prefixCls}-error
+        svg
+            color: $error-color
+
+    .{$prefixCls}-success
+        svg
+            color: $success-color
+
+    .{$prefixCls}-warning
+        svg
+            color: $warning-color
+
+    .{$prefixCls}-loading
+        svg
+            color: $loading-color
+            animation: berry-spin $loading-time linear infinite
+
+    &.{$prefixCls}-open
+        pointer-events: auto
+        animation: berry-fade-in $message-show-time $animate-type forwards
+
+    &.{$prefixCls}-close
+        pointer-events: none
+        animation: berry-fade-out $message-show-time $animate-type forwards

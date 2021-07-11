@@ -1,0 +1,42 @@
+@import '../styles/vars'
+
+$prefixCls = berry-popover
+
+.{$prefixCls}
+    display: inline-block
+    vertical-align: top
+    &-wrapper
+        padding: 0
+        z-index: $popover-wrapper-z-index
+        .{$prefixCls}-title
+            min-width: $berry-popover-content-width
+            min-height: $berry-popover-title-height
+            line-height: 2
+            text-align: center
+            white-space: pre-wrap
+            border-bottom: 1px solid $border-color            
+        
+        .{$prefixCls}-content
+            min-width: $berry-popover-content-width
+            padding: $berry-popover-content-padding
+
+        &.berry-tooltip-position-top
+            &::before,
+            &::after
+                top: 95%
+
+        &.berry-tooltip-position-bottom
+            &::before,
+            &::after
+                bottom: 95%
+
+        &.berry-tooltip-position-left
+            &::before,
+            &::after
+                left: 98%
+
+        &.berry-tooltip-position-right
+            &::before,
+            &::after
+                right: 98%
+

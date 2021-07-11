@@ -1,0 +1,13 @@
+@import "../styles/vars"
+
+$prefixCls = berry-dropdown
+
+.{$prefixCls}
+    position: relative
+    &-wrapper
+        padding: 0!important
+        background-color: transparent !important
+        z-index: $berry-dropdown-z-index !important
+        .berry-popover-content
+            padding: 0 !important
+            min-width: unset !important

@@ -1,0 +1,24 @@
+@import "../styles/vars"
+@import "../styles/mixins"
+
+$prefixCls = berry-empty
+
+.{$prefixCls}
+    width: 100%
+    text-align: center
+    height: $berry-empty-height
+    flex-center()
+    flex-direction: column
+    color: $font-color
+
+    &-icon
+        margin-bottom: $berry-empty-offset
+        font-size: $berry-empty-icon-size
+        height: $berry-empty-icon-height
+        svg
+            stroke-width: 1px
+
+    &-description
+        font-size: $font-size
+        color: $font-color
+        margin-bottom: $berry-empty-offset

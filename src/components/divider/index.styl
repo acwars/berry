@@ -1,0 +1,66 @@
+@import "../styles/vars"
+
+$prefixCls = berry-divider
+
+.{$prefixCls}
+    font-size: 14px
+    margin: 0
+    padding: 0
+    background: $berry-divider-color
+    display: inline-block
+    height: 1px
+    width: 1px
+
+    &.berry-divider-horizontal
+        display: block
+        width: 100%
+        margin: 16px 0
+
+    &.berry-divider-vertical
+        vertical-align: middle
+        position: relative
+        height: 1em
+        margin: 0 8px
+
+    &.berry-divider-dashed
+        border-top: 1px dashed $berry-divider-color
+        background: none
+
+    &.berry-divider-horizontal-title
+        background: none
+        display: table
+
+        b
+            height: 1px
+            width: 50%
+            display: table-cell
+            border-top: 1px solid $berry-divider-color
+            position: relative
+            top: 50%
+            transform: translateY(50%)
+
+    &.berry-divider-horizontal-title-center
+        text-align: center
+
+    &.berry-divider-horizontal-title-left
+        b
+            &:first-child
+                width: 10%
+
+            &:last-child
+                width: 90%
+
+    &.berry-divider-horizontal-title-right
+        b
+            &:first-child
+                width: 90%
+
+            &:last-child
+                width: 10%
+
+    &-title-text
+        padding: 0 20px
+        font-size: 16px
+        white-space: nowrap
+        font-weight: 500
+        display: inline-block

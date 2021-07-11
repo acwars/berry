@@ -1,0 +1,41 @@
+@import "../styles/vars"
+@import "../styles/mixins"
+
+$prefixCls = berry-avatar
+
+.{$prefixCls}
+    display: inline-block
+    text-align: center
+    background: $berry-avatar-bg
+    color: $berry-avatar-color
+    white-space: nowrap
+    position: relative
+    overflow: hidden
+    vertical-align: middle
+
+    &.berry-avatar-circle
+        border-radius: 50%
+
+    &.berry-avatar-square
+        border-radius: $berry-avatar-border-radius
+
+    avatar-size($berry-avatar-size-base, $berry-avatar-font-size-base)
+
+    &-size-large
+        avatar-size($berry-avatar-size-lg, $berry-avatar-font-size-lg)
+
+    &-size-small
+        avatar-size($berry-avatar-size-sm, $berry-avatar-font-size-sm)
+
+    &-image
+        background: transparent
+        img
+            width: 100%
+            height: 100%
+            display: block
+
+    &-text
+        position: absolute
+        left: 50%
+        transform-origin: 0 center
+
